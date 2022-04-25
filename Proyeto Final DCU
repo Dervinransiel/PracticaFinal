@@ -1,0 +1,128 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Proyecto_Final_DCU
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Seccion.Enabled = false;
+        }
+        private void controlBotones()
+        {
+            if (nombre.Text.Trim() != string.Empty && nombre.Text.All(Char.IsLetter))
+            {
+                Seccion.Enabled = true;
+                errorProvider1.SetError(nombre, "");
+            }
+            else
+            {
+                if (!nombre.Text.All(char.IsLetter))
+                {
+                    errorProvider1.SetError(nombre, "El nombre solo debe contener letras");
+                }
+                else
+                {
+                    errorProvider1.SetError(nombre, "debe introducir su nombre");
+                }
+                Seccion.Enabled = false;
+                nombre.Focus();
+            }
+        }
+        private void nombre_TextChanged(object sender, EventArgs e)
+        {
+            controlBotones();
+        }
+        private void ID_TextChanged(object sender, EventArgs e)
+        {
+            controlBotones1();
+        } 
+        private void controlBotones1()
+        {
+            if (ID.Text.Trim() != string.Empty && ID.Text.All(Char.IsLetter))
+            {
+                Seccion.Enabled = true;
+                errorProvider1.SetError(ID, "");
+            }
+            else
+            {
+                if (!ID.Text.All(char.IsLetter))
+                {
+                    errorProvider1.SetError(ID, "El ID solo debe contener Numeros");
+                }
+                else
+                {
+                    errorProvider1.SetError(ID, "Debe introducir su ID");
+                }
+                Seccion.Enabled = false;
+                ID.Focus();
+            }
+        }
+        private void telefono_TextChanged(object sender, EventArgs e)
+        {
+            controlBotones2();
+        }
+        private void correo_TextChanged(object sender, EventArgs e)
+        {
+             controlBotones3();
+        }
+        private void controlBotones2()
+        {
+            if (telefono.Text.Trim() != string.Empty && telefono.Text.All(Char.IsLetter))
+            {
+                Seccion.Enabled = true;
+                errorProvider1.SetError(nombre, "");
+            }
+            else
+            {
+                if (!telefono.Text.All(char.IsLetter))
+                {
+                    errorProvider1.SetError(telefono, "El Telefono solo debe contener Numeros");
+                }
+                else
+                {
+                    errorProvider1.SetError(telefono, "Debe introducir su Telefono");
+                }
+                Seccion.Enabled = false;
+                telefono.Focus();
+            }
+        }
+        private void controlBotones3()
+        {
+            if (correo.Text.Trim() != string.Empty && correo.Text.All(Char.IsLetter))
+            {
+                Seccion.Enabled = true;
+                errorProvider1.SetError(correo, "");
+            }
+            else
+            {
+                if (!correo.Text.All(char.IsLetter))
+                {
+                    errorProvider1.SetError(correo, "El Correo solo debe contener Letras");
+                }
+                else
+                {
+                    errorProvider1.SetError(correo, "Debe introducir su Correo");
+                }
+                     Seccion.Enabled = false;
+                     correo.Focus();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }   }    
